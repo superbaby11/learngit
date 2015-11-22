@@ -1,0 +1,19 @@
+创建一个Git仓库
+    git init
+添加文件到Git仓库
+    git add添加到缓存区，可以反复多次使用
+    git commit把缓存区件提交到当前分支
+查看状态
+    git status
+查看具体修改内容
+    git diff
+查看提交日志
+    git log
+    git log --pretty=oneline
+查看命令日志
+    git reflog
+回退版本
+    git reset --hard HEAD     当前版本
+    git reset --hard HEAD^    上个版本
+    git reset --hard HEAD^^   上上个版本
+    git reset --hard commitID 回退到commitID指向的版本
