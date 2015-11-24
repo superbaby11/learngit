@@ -17,3 +17,9 @@
     git reset --hard HEAD^    上个版本
     git reset --hard HEAD^^   上上个版本
     git reset --hard commitID 回退到commitID指向的版本
+撤销修改
+    git checkout -- file      撤销工作区的修改
+    git reset HEAD file       撤销缓存区的修改
+删除wen件
+    git rm file
+    git commit -m ""          删除wen件并提交
