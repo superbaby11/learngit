@@ -1,0 +1,7 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          MyFlow.txt
+
+*** Test Cases ***
+tempcase1
+    登录web页面    http://172.30.10.125    firefox    omcadmin    123456
