@@ -1,0 +1,193 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          MyFlow.txt
+Resource          MyKeyword.txt
+Resource          MyVariable.txt
+Library           SSHLibrary
+Library           MyLibrary
+
+*** Test Cases ***
+Log_001
+    [Documentation]    查看log管理项
+    ...    1.检测点:左侧任务栏展开log选项
+    ...    2.1检测点:进入logs界面,表头显示"User","Action","Time"
+    ...    2.2检测点:日志内容包含用户名,具体时间,所做动作
+    [Tags]    done
+    登录web页面    ${url}    ${browser}    ${username-admin}    ${password-admin}
+    点击日志
+    Page Should Contain Element    Xpath=//form[@id="id_filter_form"]
+    Page Should Contain Element    Xpath=//input[@name="logs__filter__q"]
+    Page Should Contain Element    Xpath=//table[@id="logs"]
+    关闭浏览器
+
+Log_002
+    [Documentation]    可以筛选
+    [Tags]    done
+    登录web页面    ${url}    ${browser}    ${username-admin}    ${password-admin}
+    点击日志
+    按照动作筛选日志    Change default password.
+    关闭浏览器
+
+Log_003
+    [Documentation]    按时间筛选
+    登录web页面    ${url}    ${browser}    ${username-admin}    ${password-admin}
+    点击日志
+    按照时间筛选日志
+
+Log_004
+    [Documentation]    按时间筛选
+    MyLibrary.compute    1    2
+
+*** Keywords ***
+按照动作筛选日志
+    [Arguments]    ${filtertext}
+    [Documentation]    接收一个参数，然后进行筛选。参数为筛选关键字，比如一个Action的名称“Login”、“Logout”等。
+    input text    Xpath=//input[@name="logs__filter__q"]    ${filtertext}
+    sleep    2
+    ${logAmount}=    Get Matching Xpath Count    //table[@id="logs"]//tbody/tr
+    ${logAmount}=    evaluate    ${logAmount}+1
+    log    ${logAmount}
+    : FOR    ${i}    IN RANGE    1    ${logAmount}
+    \    ${xpath1}=    catenate    //table[@id="logs"]//tbody/tr[    ${i}    ]/td[2]
+    \    ${xpath2}=    catenate    //table[@id="logs"]//tbody/tr[    ${i}    ]
+    \    ${action}=    Get Text    ${xpath1}
+    \    log    ${action}
+    \    Run Keyword If    '${action}'=='${filtertext}'    Element Should Be Visible    ${xpath2}
+    \    Run Keyword If    '${action}'!='${filtertext}'    Element Should Not Be Visible    ${xpath2}
+
+按照时间筛选日志
+    [Documentation]    1、ssh登录到管理节点查询当前的日期（年、月、日）；
+    ...    2、按照时间（当前的年月日），筛选日志；
+    comment    ssh登录到管理节点，查看实际的年月日信息
+    open connection    ${ip-mn}
+    Login    ${username-mn}    ${password-mn}
+    ${stdout}=    execute command    date
+    import library    String
+    @{year}=    Get Regexp Matches    ${stdout}    \\d{4}$
+    @{month}=    Get Regexp Matches    ${stdout}    ^\\w{3}\\s(\\w{3})    1
+    @{day}=    Get Regexp Matches    ${stdout}    ^\\w{3}\\s\\w{3}\\s\\s(\\d)    1
+    log many    @{year}[0]    @{month}[0]    @{day}[0]
+    comment    11~113行，填写起止时间，首先选择年份
+    click element    Xpath=//input[@id="id_start"]
+    Wait Until Element Is Visible    Xpath=//div[@class="datepicker dropdown-menu"][1]
+    click element    Xpath=//div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-days"]//th[@class="switch"]
+    Wait Until Element Is Visible    Xpath=//div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-months"]//th[@class="switch"]
+    click element    Xpath=//div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-months"]//th[@class="switch"]
+    ${amount}=    Get Matching Xpath Count    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-years"]//span
+    log    ${amount}
+    ${amount}=    Evaluate    ${amount}+1
+    : FOR    ${i}    IN RANGE    1    ${amount}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-years"]//span[    ${i}    ]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{year}[0]"    Click Element    ${xpath}
+    comment    选择月份
+    click element    Xpath=//input[@id="id_start"]
+    Wait Until Element Is Visible    Xpath=//div[@class="datepicker dropdown-menu"][1]
+    click element    Xpath=//div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-days"]//th[@class="switch"]
+    ${amount}=    Get Matching Xpath Count    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-months"]//span
+    log    ${amount}
+    ${amount}=    Evaluate    ${amount}+1
+    : FOR    ${i}    IN RANGE    1    ${amount}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-months"]//span[    ${i}    ]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{month}[0]"    Click Element    ${xpath}
+    comment    选择日子
+    click element    Xpath=//input[@id="id_start"]
+    Wait Until Element Is Visible    Xpath=//div[@class="datepicker dropdown-menu"][1]
+    ${amount}=    Get Matching Xpath Count    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-days"]//tbody/tr
+    log    ${amount}
+    ${amount}=    Evaluate    ${amount}+1
+    : FOR    ${i}    IN RANGE    1    ${amount}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[1]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[2]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[3]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[4]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[5]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[6]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][1]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[7]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    comment    选择年份
+    click element    Xpath=//input[@id="id_end"]
+    Wait Until Element Is Visible    Xpath=//div[@class="datepicker dropdown-menu"][2]
+    click element    Xpath=//div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-days"]//th[@class="switch"]
+    Wait Until Element Is Visible    Xpath=//div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-months"]//th[@class="switch"]
+    click element    Xpath=//div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-months"]//th[@class="switch"]
+    ${amount}=    Get Matching Xpath Count    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-years"]//span
+    log    ${amount}
+    ${amount}=    Evaluate    ${amount}+1
+    : FOR    ${i}    IN RANGE    1    ${amount}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-years"]//span[    ${i}    ]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{year}[0]"    Click Element    ${xpath}
+    comment    选择月份
+    click element    Xpath=//input[@id="id_end"]
+    Wait Until Element Is Visible    Xpath=//div[@class="datepicker dropdown-menu"][2]
+    click element    Xpath=//div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-days"]//th[@class="switch"]
+    ${amount}=    Get Matching Xpath Count    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-months"]//span
+    log    ${amount}
+    ${amount}=    Evaluate    ${amount}+1
+    : FOR    ${i}    IN RANGE    1    ${amount}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-months"]//span[    ${i}    ]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{month}[0]"    Click Element    ${xpath}
+    comment    选择日子
+    click element    Xpath=//input[@id="id_end"]
+    Wait Until Element Is Visible    Xpath=//div[@class="datepicker dropdown-menu"][2]
+    ${amount}=    Get Matching Xpath Count    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-days"]//tbody/tr
+    log    ${amount}
+    ${amount}=    Evaluate    ${amount}+1
+    : FOR    ${i}    IN RANGE    1    ${amount}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[1]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[2]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[3]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[4]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[5]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[6]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    \    ${xpath}=    catenate    //div[@class="datepicker dropdown-menu"][2]//div[@class="datepicker-days"]//tbody/tr[    ${i}    ]/td[7]
+    \    ${text}=    Get text    ${xpath}
+    \    Run Keyword If    "${text}"=="@{day}[0]"    Click Element    ${xpath}
+    click element    Xpath=//button[@id="id_filter_submit"]
+    sleep    2
+    comment    判断筛选出来的日志的时间是否正确
+    @{monthlist}=    set variable    ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+    @{yearlist}=    set variable    ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"]
+    ${amount}=    Get matching xpath count    //form//tbody/tr
+    ${amount}=    Evaluate    ${amount}+1
+    : FOR    ${i}    IN RANGE    1    ${amount}
+    \    ${xpath}=    set variable    //form//tbody/tr[${i}]/td[3]
+    \    ${text}=    Get Text    ${xpath}
+    \    @{text}=    Split String    ${text}    ${SPACE}
+    \    @{date}=    Split String    @{text}[0]    -
+    \    log many    @{date}[0]    @{date}[1]    @{date}[2]
+    \    @{date}[1]=    set variable    @{monthlist}[@{date}[1]]
+    \    @{day}[0]=    set variable    @{daylist}[@da]
+    ${EMPTY}
+    \    Should Be Equal    @{year}[0]    @{date}[0]
+    \    Should Be Equal    @{month}[0]    @{date}[1]
+    \    Should Be Equal    @{day}[0]    @{date}[2]
+    ${EMPTY}

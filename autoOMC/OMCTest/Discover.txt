@@ -1,0 +1,202 @@
+*** Settings ***
+Documentation     “发现节点”相关测试项
+...               要求如下：
+...               1）网络配置已经完成；
+...               2）尚未发现节点；
+Library           Selenium2Library
+Resource          MyFlow.txt
+Resource          MyKeyword.txt
+Library           os
+Resource          MyVariable.txt
+Library           SSHLibrary
+
+*** Variables ***
+
+*** Test Cases ***
+Discover_001
+    [Documentation]    查看discover页面包含的元素
+    [Tags]    done
+    登录web页面    ${url}    ${browser}    ${username-admin}    ${password-admin}
+    点击发现
+    comment    检查页面包含“选择发现资源类型”下拉框
+    Wait Until Page Contains Element    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]
+    comment    检查页面包含“选择一个发现选项”下拉框
+    Page Should Contain Element    Xpath=//fieldset//div[2]//select[@id="id_ip_range"]
+    comment    检查页面包含“现在发现”按钮
+    Page Should Contain Element    Xpath=//div/button[@class="btn btn-primary"]
+    关闭浏览器
+
+Discover_002
+    [Documentation]    发现资源类型为all时，发现选项为“单个IP”，发现节点
+    [Tags]    done
+    登录web页面    ${url}    ${browser}    ${username-admin}    ${password-admin}
+    ${status}    Run Keyword And Return Status    检查是否存在节点
+    log    ${status}
+    Run Keyword If    ${status}    清除已有节点
+    ${BMCIP}    获取BMCIP    ${ip-mn}    ${username-mn}    ${password-mn}
+    log    ${BMCIP}
+    点击发现
+    Wait Until Page Contains Element    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]
+    Select From List By Value    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]    all
+    Select From List By Value    Xpath=//fieldset//div[2]//select[@id="id_ip_range"]    single_ip_address
+    Input Text    Xpath=//input[@id="id_ip_address"]    ${BMCIP}
+    Click Element    Xpath=//div/button[@class="btn btn-primary"]
+    提示成功
+    关闭浏览器
+
+Discover_003
+    [Documentation]    发现资源类型为OpenPOWER BMC时，发现选项为“单个IP”，发现节点
+    [Tags]    done
+    登录web页面    ${url}    ${browser}    ${username-admin}    ${password-admin}
+    ${status}    Run Keyword And Return Status    检查是否存在节点
+    log    ${status}
+    Run Keyword If    ${status}    清除已有节点
+    ${BMCIP}    获取BMCIP    ${ip-mn}    ${username-mn}    ${password-mn}
+    log    ${BMCIP}
+    点击发现
+    Wait Until Page Contains Element    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]
+    Select From List By Value    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]    openpower
+    Select From List By Value    Xpath=//fieldset//div[2]//select[@id="id_ip_range"]    single_ip_address
+    Input Text    Xpath=//input[@id="id_ip_address"]    ${BMCIP}
+    Click Element    Xpath=//div/button[@class="btn btn-primary"]
+    提示成功
+    关闭浏览器
+
+Discover_004
+    [Documentation]    发现资源类型为all时，发现选项为“IP地址段”，发现节点
+    [Tags]    done
+    登录web页面    ${url}    ${browser}    ${username-admin}    ${password-admin}
+    ${status}    Run Keyword And Return Status    检查是否存在节点
+    log    ${status}
+    Run Keyword If    ${status}    清除已有节点
+    ${startIP}    ${endIP} =    获取BMCIP地址范围
+    log many    ${startIP}    ${endIP}
+    点击发现
+    Wait Until Page Contains Element    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]
+    Select From List By Value    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]    all
+    Select From List By Value    Xpath=//fieldset//div[2]//select[@id="id_ip_range"]    range_ip_address
+    Input Text    Xpath=//input[@id="id_ip_address_start"]    ${startIP}
+    Input Text    Xpath=//input[@id="id_ip_address_end"]    ${endIP}
+    Click Element    Xpath=//div/button[@class="btn btn-primary"]
+    提示成功
+    关闭浏览器
+
+Discover_005
+    [Documentation]    发现资源类型为OpenPOWER BMC时，发现选项为“IP地址段”，发现节点
+    [Tags]    done
+    登录web页面    ${url}    ${browser}    ${username-admin}    ${password-admin}
+    ${status}    Run Keyword And Return Status    检查是否存在节点
+    log    ${status}
+    Run Keyword If    ${status}    清除已有节点
+    ${startIP}    ${endIP} =    获取BMCIP地址范围
+    log many    ${startIP}    ${endIP}
+    点击发现
+    Wait Until Page Contains Element    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]
+    Select From List By Value    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]    openpower
+    Select From List By Value    Xpath=//fieldset//div[2]//select[@id="id_ip_range"]    range_ip_address
+    Input Text    Xpath=//input[@id="id_ip_address_start"]    ${startIP}
+    Input Text    Xpath=//input[@id="id_ip_address_end"]    ${endIP}
+    Click Element    Xpath=//div/button[@class="btn btn-primary"]
+    提示成功
+    关闭浏览器
+
+Discover_006
+    [Documentation]    发现资源类型为all时，发现选项为“多个IP地址”，发现节点
+    [Tags]    done
+    登录web页面    ${url}    ${browser}    ${username-admin}    ${password-admin}
+    ${status}    Run Keyword And Return Status    检查是否存在节点
+    log    ${status}
+    Run Keyword If    ${status}    清除已有节点
+    ${BMCIP}    获取BMCIP    ${ip-mn}    ${username-mn}    ${password-mn}
+    log    ${BMCIP}
+    点击发现
+    Wait Until Page Contains Element    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]
+    Select From List By Value    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]    all
+    Select From List By Value    Xpath=//fieldset//div[2]//select[@id="id_ip_range"]    multiple_ip_address
+    Input Text    Xpath=//input[@id="id_ip_address_add"]    ${BMCIP}
+    Click Element    Xpath=//div[@id="add_ip"]
+    Wait Until Page Contains Element    Xpath=//input[@id="ip_6"]
+    Input Text    Xpath=//input[@id="ip_6"]    10.123.123.123
+    Click Element    Xpath=//div[@id="add_ip"]
+    Wait Until Page Contains Element    Xpath=//input[@id="ip_7"]
+    Input Text    Xpath=//input[@id="ip_7"]    10.124.124.124
+    Click Element    Xpath=//div/button[@class="btn btn-primary"]
+    提示成功
+    关闭浏览器
+
+Discover_007
+    [Documentation]    发现资源类型为OpenPOWER BMC时，发现选项为“多个IP地址”，发现节点
+    [Tags]    done
+    登录web页面    ${url}    ${browser}    ${username-admin}    ${password-admin}
+    ${status}    Run Keyword And Return Status    检查是否存在节点
+    log    ${status}
+    Run Keyword If    ${status}    清除已有节点
+    ${BMCIP}    获取BMCIP    ${ip-mn}    ${username-mn}    ${password-mn}
+    log    ${BMCIP}
+    点击发现
+    Wait Until Page Contains Element    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]
+    Select From List By Value    Xpath=//fieldset//div[1]//select[@id="id_dhcp_range"]    openpower
+    Select From List By Value    Xpath=//fieldset//div[2]//select[@id="id_ip_range"]    multiple_ip_address
+    Input Text    Xpath=//input[@id="id_ip_address_add"]    ${BMCIP}
+    Click Element    Xpath=//div[@id="add_ip"]
+    Wait Until Page Contains Element    Xpath=//input[@id="ip_6"]
+    Input Text    Xpath=//input[@id="ip_6"]    10.123.123.123
+    Click Element    Xpath=//div[@id="add_ip"]
+    Wait Until Page Contains Element    Xpath=//input[@id="ip_7"]
+    Input Text    Xpath=//input[@id="ip_7"]    10.124.124.124
+    Click Element    Xpath=//div/button[@class="btn btn-primary"]
+    提示成功
+    关闭浏览器
+
+*** Keywords ***
+清除已有节点
+    点击全部系统
+    Wait Until Page Contains Element    Xpath=//button[@id="servers__action_delete"]
+    Click Element    Xpath=//th/input[@class="table-row-multi-select"]
+    Wait Until Element Is Enabled    Xpath=//button[@id="servers__action_delete"]
+    Click Element    Xpath=//button[@id="servers__action_delete"]
+    Click Element    Xpath=//a[@class="btn btn-primary"]
+    提示成功
+    点击欢迎
+
+检查是否存在节点
+    点击全部系统
+    Page Should Contain Element    Xpath=//button[@id="servers__action_delete"]
+    点击欢迎
+
+获取BMCIP地址范围
+    点击网络
+    Page Should Contain Element    Xpath=//select[@id="id_adapters"]
+    Select From List By Value    Xpath=//select[@id="id_adapters"]    eth1
+    Click Element    Xpath=//a[@id="detail_link"]
+    Wait Until Page Contains Element    Xpath=//select[@id="id_dhcp_range"]
+    ${IPRangeBMC}    GetText    Xpath=//select/option[@selected="selected"]
+    log    ${IPRangeBMC}
+    import library    String
+    ${startIP}    ${endIP} =    Split String    ${IPRangeBMC}    -
+    log many    ${startIP}    ${endIP}
+    Click Element    Xpath=//div/a[@class="btn secondary cancel close"]
+    点击欢迎
+    [Return]    ${startIP}    ${endIP}
+
+获取BMCIP
+    [Arguments]    ${ip-mn}    ${username-mn}    ${password-mn}
+    [Documentation]    通过ssh登录到管理节点上，使用nmap命令获取bmc 的ip地址
+    ${BMCStartIP}    ${BMCEndIP}    获取BMCIP地址范围
+    log many    ${BMCStartIP}    ${BMCEndIP}
+    Comment    4至10行为合成nmap命令
+    import library    String
+    @{IP}    Split String    ${BMCStartIP}    .
+    log many    @{IP}
+    ${IP}=    Catenate    SEPARATOR=.    @{IP}[0]    @{IP}[1]    @{IP}[2]    *
+    log    ${IP}
+    ${command}=    Catenate    SEPARATOR=${SPACE}    nmap    -sP    ${IP}
+    log    ${command}
+    comment    12~17行，ssh登录下发nmap命令
+    open connection    ${ip-mn}
+    login    ${username-mn}    ${password-mn}
+    ${stdout}=    execute command    nmap -sP 172.16.0.*
+    log    ${stdout}
+    ${BMCIP}=    Get Regexp Matches    ${stdout}    172\.16\.0\.13[0-9]
+    log    ${BMCIP}
+    [Return]    ${BMCIP}

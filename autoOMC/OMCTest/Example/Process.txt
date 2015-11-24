@@ -1,0 +1,5 @@
+*** Test Cases ***
+run process
+    [Tags]    demo
+    import library    Process
+    run process    kill.bat

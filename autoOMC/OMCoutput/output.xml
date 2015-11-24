@@ -1,0 +1,1767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20151113 13:34:40.810" generator="Robot 2.9b2 (Python 2.7 on win32)">
+<suite source="D:\OMCTest" id="s1" name="OMCTest">
+<suite source="D:\OMCTest\DefaultConfiguration.txt" id="s1-s1" name="DefaultConfiguration">
+<test id="s1-s1-t1" name="Default_001">
+<kw name="登录web页面" library="MyFlow">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>${username-admin}</arg>
+<arg>${password-admin}</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151113 13:34:43.572" level="INFO">Opening browser 'chrome' to base url 'http://172.30.10.130'</msg>
+<status status="PASS" endtime="20151113 13:35:10.799" starttime="20151113 13:34:43.572"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151113 13:35:11.126" starttime="20151113 13:35:10.814"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151113 13:35:11.127" level="INFO">Typing text 'omcadmin' into text field 'id=id_username'</msg>
+<status status="PASS" endtime="20151113 13:35:11.356" starttime="20151113 13:35:11.127"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151113 13:35:11.357" level="INFO">Typing password into text field 'id=id_password'</msg>
+<status status="PASS" endtime="20151113 13:35:11.459" starttime="20151113 13:35:11.356"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=[type=submit]</arg>
+</arguments>
+<msg timestamp="20151113 13:35:11.461" level="INFO">Clicking button 'css=[type=submit]'.</msg>
+<status status="PASS" endtime="20151113 13:35:11.559" starttime="20151113 13:35:11.460"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=user_info</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:35:15.731" starttime="20151113 13:35:11.560"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:35:15.731" starttime="20151113 13:34:43.570"></status>
+</kw>
+<kw name="点击默认设置" library="MyFlow">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:35:15.862" starttime="20151113 13:35:15.735"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<msg timestamp="20151113 13:35:15.863" level="INFO">Clicking element 'Xpath=//i[@class="icon-setting"]'.</msg>
+<status status="PASS" endtime="20151113 13:35:15.912" starttime="20151113 13:35:15.862"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:35:16.189" starttime="20151113 13:35:15.913"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<msg timestamp="20151113 13:35:16.191" level="INFO">Clicking element 'Xpath=//a[@href="/hardware/globalattributes/"]'.</msg>
+<status status="PASS" endtime="20151113 13:35:16.256" starttime="20151113 13:35:16.190"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20151113 13:35:32.498" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151113 13:35:32.499" starttime="20151113 13:35:32.215"></status>
+</kw>
+<msg timestamp="20151113 13:35:32.516" level="FAIL">Element 'Xpath=//input[@id="id_default_username"]' did not appear in 5 seconds</msg>
+<status status="FAIL" endtime="20151113 13:35:32.516" starttime="20151113 13:35:16.257"></status>
+</kw>
+<status status="FAIL" endtime="20151113 13:35:32.517" starttime="20151113 13:35:15.734"></status>
+</kw>
+<doc>1、检查默认配置页面元素，应该含有“用户名”、“密码”、确认密码三个输入框和一个名称为“保存”的按钮；
+2、Default Configuration页面，不输入信息，点击“保存”按钮；</doc>
+<tags>
+<tag>DefaultConfiguration</tag>
+<tag>done</tag>
+</tags>
+<status status="FAIL" endtime="20151113 13:35:32.517" critical="yes" starttime="20151113 13:34:43.531">Element 'Xpath=//input[@id="id_default_username"]' did not appear in 5 seconds</status>
+</test>
+<test id="s1-s1-t2" name="Default_002">
+<kw name="登录web页面" library="MyFlow">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>${username-admin}</arg>
+<arg>${password-admin}</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151113 13:35:32.522" level="INFO">Opening browser 'chrome' to base url 'http://172.30.10.130'</msg>
+<status status="PASS" endtime="20151113 13:35:42.256" starttime="20151113 13:35:32.521"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151113 13:35:42.485" starttime="20151113 13:35:42.257"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151113 13:35:42.487" level="INFO">Typing text 'omcadmin' into text field 'id=id_username'</msg>
+<status status="PASS" endtime="20151113 13:35:42.677" starttime="20151113 13:35:42.486"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151113 13:35:42.680" level="INFO">Typing password into text field 'id=id_password'</msg>
+<status status="PASS" endtime="20151113 13:35:42.813" starttime="20151113 13:35:42.678"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=[type=submit]</arg>
+</arguments>
+<msg timestamp="20151113 13:35:42.815" level="INFO">Clicking button 'css=[type=submit]'.</msg>
+<status status="PASS" endtime="20151113 13:35:42.925" starttime="20151113 13:35:42.814"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=user_info</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:35:44.397" starttime="20151113 13:35:42.926"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:35:44.398" starttime="20151113 13:35:32.520"></status>
+</kw>
+<kw name="点击默认设置" library="MyFlow">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:35:44.428" starttime="20151113 13:35:44.399"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<msg timestamp="20151113 13:35:44.429" level="INFO">Clicking element 'Xpath=//i[@class="icon-setting"]'.</msg>
+<status status="PASS" endtime="20151113 13:35:44.474" starttime="20151113 13:35:44.428"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:35:44.771" starttime="20151113 13:35:44.475"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<msg timestamp="20151113 13:35:44.773" level="INFO">Clicking element 'Xpath=//a[@href="/hardware/globalattributes/"]'.</msg>
+<status status="PASS" endtime="20151113 13:35:44.859" starttime="20151113 13:35:44.772"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:35:45.507" starttime="20151113 13:35:44.861"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:35:45.507" starttime="20151113 13:35:44.398"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<msg timestamp="20151113 13:35:45.515" level="INFO">Typing text '' into text field 'Xpath=//input[@id="id_default_username"]'</msg>
+<status status="PASS" endtime="20151113 13:35:45.609" starttime="20151113 13:35:45.514"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_pwd"]</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:35:45.611" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_default_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:35:45.973" starttime="20151113 13:35:45.610"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_confirm_pwd"]</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:35:45.975" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_confirm_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:35:46.108" starttime="20151113 13:35:45.974"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//button[@type="submit"]</arg>
+</arguments>
+<msg timestamp="20151113 13:35:46.110" level="INFO">Clicking element '//button[@type="submit"]'.</msg>
+<status status="PASS" endtime="20151113 13:35:46.190" starttime="20151113 13:35:46.109"></status>
+</kw>
+<kw name="提示成功" library="MyKeyword">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']</arg>
+<arg>10</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20151113 13:36:03.482" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20151113 13:36:03.483" starttime="20151113 13:36:03.280"></status>
+</kw>
+<msg timestamp="20151113 13:36:03.483" level="FAIL">Element 'xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']' did not appear in 10 seconds</msg>
+<status status="FAIL" endtime="20151113 13:36:03.483" starttime="20151113 13:35:46.192"></status>
+</kw>
+<status status="FAIL" endtime="20151113 13:36:03.484" starttime="20151113 13:35:46.191"></status>
+</kw>
+<doc>Default Configuration页面，不输入username</doc>
+<tags>
+<tag>DefaultConfiguration</tag>
+<tag>done</tag>
+</tags>
+<status status="FAIL" endtime="20151113 13:36:03.484" critical="yes" starttime="20151113 13:35:32.519">Element 'xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']' did not appear in 10 seconds</status>
+</test>
+<test id="s1-s1-t3" name="Default_003">
+<kw name="登录web页面" library="MyFlow">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>${username-admin}</arg>
+<arg>${password-admin}</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:03.488" level="INFO">Opening browser 'chrome' to base url 'http://172.30.10.130'</msg>
+<status status="PASS" endtime="20151113 13:36:11.235" starttime="20151113 13:36:03.488"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151113 13:36:11.429" starttime="20151113 13:36:11.236"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:11.430" level="INFO">Typing text 'omcadmin' into text field 'id=id_username'</msg>
+<status status="PASS" endtime="20151113 13:36:11.517" starttime="20151113 13:36:11.430"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:11.518" level="INFO">Typing password into text field 'id=id_password'</msg>
+<status status="PASS" endtime="20151113 13:36:11.619" starttime="20151113 13:36:11.517"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=[type=submit]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:11.620" level="INFO">Clicking button 'css=[type=submit]'.</msg>
+<status status="PASS" endtime="20151113 13:36:11.715" starttime="20151113 13:36:11.620"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=user_info</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:13.352" starttime="20151113 13:36:11.715"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:13.352" starttime="20151113 13:36:03.487"></status>
+</kw>
+<kw name="点击默认设置" library="MyFlow">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:13.384" starttime="20151113 13:36:13.354"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:13.385" level="INFO">Clicking element 'Xpath=//i[@class="icon-setting"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:13.433" starttime="20151113 13:36:13.384"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:13.716" starttime="20151113 13:36:13.434"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:13.717" level="INFO">Clicking element 'Xpath=//a[@href="/hardware/globalattributes/"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:13.786" starttime="20151113 13:36:13.716"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:14.422" starttime="20151113 13:36:13.787"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:14.423" starttime="20151113 13:36:13.353"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+<arg>${username-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:14.425" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_default_username"]'</msg>
+<status status="PASS" endtime="20151113 13:36:14.520" starttime="20151113 13:36:14.424"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_pwd"]</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:14.523" level="INFO">Typing text '' into text field 'Xpath=//input[@id="id_default_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:36:14.653" starttime="20151113 13:36:14.521"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_confirm_pwd"]</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:14.654" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_confirm_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:36:14.770" starttime="20151113 13:36:14.653"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//button[@type="submit"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:14.771" level="INFO">Clicking element '//button[@type="submit"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:14.865" starttime="20151113 13:36:14.771"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>Xpath=//label[@for="id_default_pwd"]/following-sibling::span[@class="help-inline"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:15.449" starttime="20151113 13:36:14.866"></status>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<doc>Verifies element identified by `locator` is found on the current page.</doc>
+<arguments>
+<arg>Xpath=//label[@for="id_default_pwd"]/following-sibling::span[@class="help-inline"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:15.465" level="INFO">Current page contains element 'Xpath=//label[@for="id_default_pwd"]/following-sibling::span[@class="help-inline"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:15.466" starttime="20151113 13:36:15.451"></status>
+</kw>
+<kw name="关闭浏览器" library="MyKeyword">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151113 13:36:16.934" starttime="20151113 13:36:15.469"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:16.935" starttime="20151113 13:36:15.467"></status>
+</kw>
+<doc>Default Configuration页面，不输入password</doc>
+<tags>
+<tag>DefaultConfiguration</tag>
+<tag>done</tag>
+</tags>
+<status status="PASS" endtime="20151113 13:36:16.936" critical="yes" starttime="20151113 13:36:03.486"></status>
+</test>
+<test id="s1-s1-t4" name="Default_004">
+<kw name="登录web页面" library="MyFlow">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>${username-admin}</arg>
+<arg>${password-admin}</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:16.943" level="INFO">Opening browser 'chrome' to base url 'http://172.30.10.130'</msg>
+<status status="PASS" endtime="20151113 13:36:22.736" starttime="20151113 13:36:16.941"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151113 13:36:22.924" starttime="20151113 13:36:22.737"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:22.925" level="INFO">Typing text 'omcadmin' into text field 'id=id_username'</msg>
+<status status="PASS" endtime="20151113 13:36:23.014" starttime="20151113 13:36:22.924"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:23.015" level="INFO">Typing password into text field 'id=id_password'</msg>
+<status status="PASS" endtime="20151113 13:36:23.116" starttime="20151113 13:36:23.014"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=[type=submit]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:23.118" level="INFO">Clicking button 'css=[type=submit]'.</msg>
+<status status="PASS" endtime="20151113 13:36:23.203" starttime="20151113 13:36:23.117"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=user_info</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:25.166" starttime="20151113 13:36:23.203"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:25.167" starttime="20151113 13:36:16.940"></status>
+</kw>
+<kw name="点击默认设置" library="MyFlow">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:25.203" starttime="20151113 13:36:25.168"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:25.205" level="INFO">Clicking element 'Xpath=//i[@class="icon-setting"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:25.252" starttime="20151113 13:36:25.204"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:25.547" starttime="20151113 13:36:25.253"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:25.548" level="INFO">Clicking element 'Xpath=//a[@href="/hardware/globalattributes/"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:25.606" starttime="20151113 13:36:25.548"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:26.271" starttime="20151113 13:36:25.607"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:26.272" starttime="20151113 13:36:25.167"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+<arg>${username-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:26.274" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_default_username"]'</msg>
+<status status="PASS" endtime="20151113 13:36:26.399" starttime="20151113 13:36:26.273"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_pwd"]</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:26.401" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_default_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:36:26.548" starttime="20151113 13:36:26.400"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_confirm_pwd"]</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:26.549" level="INFO">Typing text '' into text field 'Xpath=//input[@id="id_confirm_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:36:26.687" starttime="20151113 13:36:26.548"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//button[@type="submit"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:26.691" level="INFO">Clicking element '//button[@type="submit"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:26.778" starttime="20151113 13:36:26.690"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>Xpath=//label[@for="id_confirm_pwd"]/following-sibling::span[@class="help-inline"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:27.358" starttime="20151113 13:36:26.779"></status>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<doc>Verifies element identified by `locator` is found on the current page.</doc>
+<arguments>
+<arg>Xpath=//label[@for="id_confirm_pwd"]/following-sibling::span[@class="help-inline"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:27.368" level="INFO">Current page contains element 'Xpath=//label[@for="id_confirm_pwd"]/following-sibling::span[@class="help-inline"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:27.369" starttime="20151113 13:36:27.359"></status>
+</kw>
+<kw name="关闭浏览器" library="MyKeyword">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151113 13:36:28.662" starttime="20151113 13:36:27.371"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:28.663" starttime="20151113 13:36:27.370"></status>
+</kw>
+<doc>Default Configuration页面，不输入confirm password</doc>
+<tags>
+<tag>DefaultConfiguration</tag>
+<tag>done</tag>
+</tags>
+<status status="PASS" endtime="20151113 13:36:28.666" critical="yes" starttime="20151113 13:36:16.938"></status>
+</test>
+<test id="s1-s1-t5" name="Default_005">
+<kw name="登录web页面" library="MyFlow">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>${username-admin}</arg>
+<arg>${password-admin}</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:28.673" level="INFO">Opening browser 'chrome' to base url 'http://172.30.10.130'</msg>
+<status status="PASS" endtime="20151113 13:36:34.777" starttime="20151113 13:36:28.672"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151113 13:36:34.967" starttime="20151113 13:36:34.778"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:34.968" level="INFO">Typing text 'omcadmin' into text field 'id=id_username'</msg>
+<status status="PASS" endtime="20151113 13:36:35.069" starttime="20151113 13:36:34.968"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:35.071" level="INFO">Typing password into text field 'id=id_password'</msg>
+<status status="PASS" endtime="20151113 13:36:35.183" starttime="20151113 13:36:35.070"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=[type=submit]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:35.184" level="INFO">Clicking button 'css=[type=submit]'.</msg>
+<status status="PASS" endtime="20151113 13:36:35.277" starttime="20151113 13:36:35.183"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=user_info</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:37.422" starttime="20151113 13:36:35.278"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:37.423" starttime="20151113 13:36:28.670"></status>
+</kw>
+<kw name="点击默认设置" library="MyFlow">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:37.464" starttime="20151113 13:36:37.425"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:37.465" level="INFO">Clicking element 'Xpath=//i[@class="icon-setting"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:37.511" starttime="20151113 13:36:37.464"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:37.785" starttime="20151113 13:36:37.512"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:37.786" level="INFO">Clicking element 'Xpath=//a[@href="/hardware/globalattributes/"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:37.849" starttime="20151113 13:36:37.785"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:38.507" starttime="20151113 13:36:37.849"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:38.508" starttime="20151113 13:36:37.424"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+<arg>${username-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:38.511" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_default_username"]'</msg>
+<status status="PASS" endtime="20151113 13:36:38.606" starttime="20151113 13:36:38.510"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_pwd"]</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:38.609" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_default_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:36:38.749" starttime="20151113 13:36:38.608"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_confirm_pwd"]</arg>
+<arg>${SPACE*2}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:38.754" level="INFO">Typing text '  ' into text field 'Xpath=//input[@id="id_confirm_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:36:38.887" starttime="20151113 13:36:38.752"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//button[@type="submit"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:38.890" level="INFO">Clicking element 'Xpath=//button[@type="submit"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:38.966" starttime="20151113 13:36:38.890"></status>
+</kw>
+<kw name="Comment" library="BuiltIn">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>8~9行，检测是否出现告警</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:38.995" starttime="20151113 13:36:38.967"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>Xpath=//div[@class="alert alert-message alert-error"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:39.275" starttime="20151113 13:36:38.995"></status>
+</kw>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<doc>Verifies element identified by `locator` is found on the current page.</doc>
+<arguments>
+<arg>Xpath=//div[@class="alert alert-message alert-error"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:39.293" level="INFO">Current page contains element 'Xpath=//div[@class="alert alert-message alert-error"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:39.293" starttime="20151113 13:36:39.276"></status>
+</kw>
+<kw name="关闭浏览器" library="MyKeyword">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151113 13:36:40.522" starttime="20151113 13:36:39.295"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:40.523" starttime="20151113 13:36:39.294"></status>
+</kw>
+<doc>Default Configuration页面，密码和confirm password不一致</doc>
+<tags>
+<tag>DefaultConfiguration</tag>
+<tag>done</tag>
+</tags>
+<status status="PASS" endtime="20151113 13:36:40.525" critical="yes" starttime="20151113 13:36:28.668"></status>
+</test>
+<test id="s1-s1-t6" name="Default_006">
+<kw name="登录web页面" library="MyFlow">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>${username-admin}</arg>
+<arg>${password-admin}</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:40.533" level="INFO">Opening browser 'chrome' to base url 'http://172.30.10.130'</msg>
+<status status="PASS" endtime="20151113 13:36:46.034" starttime="20151113 13:36:40.532"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151113 13:36:46.236" starttime="20151113 13:36:46.035"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:46.237" level="INFO">Typing text 'omcadmin' into text field 'id=id_username'</msg>
+<status status="PASS" endtime="20151113 13:36:46.322" starttime="20151113 13:36:46.236"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:46.323" level="INFO">Typing password into text field 'id=id_password'</msg>
+<status status="PASS" endtime="20151113 13:36:46.437" starttime="20151113 13:36:46.322"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=[type=submit]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:46.438" level="INFO">Clicking button 'css=[type=submit]'.</msg>
+<status status="PASS" endtime="20151113 13:36:46.543" starttime="20151113 13:36:46.438"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=user_info</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:48.755" starttime="20151113 13:36:46.544"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:48.756" starttime="20151113 13:36:40.530"></status>
+</kw>
+<kw name="点击默认设置" library="MyFlow">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:48.787" starttime="20151113 13:36:48.757"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:48.788" level="INFO">Clicking element 'Xpath=//i[@class="icon-setting"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:48.834" starttime="20151113 13:36:48.787"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:49.108" starttime="20151113 13:36:48.834"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:49.110" level="INFO">Clicking element 'Xpath=//a[@href="/hardware/globalattributes/"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:49.168" starttime="20151113 13:36:49.109"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:49.957" starttime="20151113 13:36:49.169"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:49.957" starttime="20151113 13:36:48.757"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+<arg>${username-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:49.959" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_default_username"]'</msg>
+<status status="PASS" endtime="20151113 13:36:50.048" starttime="20151113 13:36:49.958"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_pwd"]</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:50.050" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_default_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:36:50.209" starttime="20151113 13:36:50.049"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_confirm_pwd"]</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:50.210" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_confirm_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:36:50.344" starttime="20151113 13:36:50.209"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//button[@type="submit"]</arg>
+</arguments>
+<msg timestamp="20151113 13:36:50.345" level="INFO">Clicking element 'Xpath=//button[@type="submit"]'.</msg>
+<status status="PASS" endtime="20151113 13:36:50.427" starttime="20151113 13:36:50.345"></status>
+</kw>
+<kw name="提示成功" library="MyKeyword">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:52.013" starttime="20151113 13:36:50.430"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:52.013" starttime="20151113 13:36:50.428"></status>
+</kw>
+<kw name="获取实际的BMC用户名和密码">
+<assign>
+<var>${username-BMC-default}</var>
+<var>${password-BMC-default}</var>
+</assign>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${ip-mn}</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:52.016" starttime="20151113 13:36:52.015"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${username-mn}</arg>
+<arg>${password-mn}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:52.017" level="INFO">Logging into '172.30.10.130:22' as 'root'.</msg>
+<msg timestamp="20151113 13:36:53.210" level="INFO">Read output: Last login: Thu Nov 12 09:48:29 2015 from 172.24.18.173
+[root@localhost ~]#</msg>
+<status status="PASS" endtime="20151113 13:36:53.210" starttime="20151113 13:36:52.016"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes `command` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>tabdump passwd</arg>
+</arguments>
+<assign>
+<var>${stdout}</var>
+</assign>
+<msg timestamp="20151113 13:36:53.212" level="INFO">Executing command 'tabdump passwd'.</msg>
+<msg timestamp="20151113 13:36:54.464" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20151113 13:36:54.464" level="INFO">${stdout} = #key,username,password,cryptmethod,authdomain,comments,disable
+"xcat","root","teamsun",,,,
+"system","root","teamsun",,,,
+"omapi","xcat_key","V1dyS1lYQWdUQmxIaENKTUw0Z25McTBhTTZobm96R3I=",,,,
+"ipmi","a...</msg>
+<status status="PASS" endtime="20151113 13:36:54.465" starttime="20151113 13:36:53.211"></status>
+</kw>
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>String</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:54.487" starttime="20151113 13:36:54.465"></status>
+</kw>
+<kw name="Get Lines Containing String" library="String">
+<doc>Returns lines of the given ``string`` that contain the ``pattern``.</doc>
+<arguments>
+<arg>${stdout}</arg>
+<arg>ipmi</arg>
+</arguments>
+<assign>
+<var>${ipmiline}</var>
+</assign>
+<msg timestamp="20151113 13:36:54.488" level="INFO">1 out of 5 lines matched</msg>
+<msg timestamp="20151113 13:36:54.489" level="INFO">${ipmiline} = "ipmi","admin","admin",,,,</msg>
+<status status="PASS" endtime="20151113 13:36:54.489" starttime="20151113 13:36:54.488"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${ipmiline}</arg>
+<arg>,</arg>
+</arguments>
+<assign>
+<var>@{BMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:36:54.490" level="INFO">@{BMCdefault} = [ "ipmi" | "admin" | "admin" |  |  |  |  ]</msg>
+<status status="PASS" endtime="20151113 13:36:54.490" starttime="20151113 13:36:54.489"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>@{BMCdefault}[1]</arg>
+<arg>"</arg>
+</arguments>
+<assign>
+<var>@{usernameBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:36:54.491" level="INFO">@{usernameBMCdefault} = [  | admin |  ]</msg>
+<status status="PASS" endtime="20151113 13:36:54.492" starttime="20151113 13:36:54.490"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{usernameBMCdefault}[1]</arg>
+</arguments>
+<assign>
+<var>${usernameBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:36:54.493" level="INFO">${usernameBMCdefault} = admin</msg>
+<status status="PASS" endtime="20151113 13:36:54.493" starttime="20151113 13:36:54.492"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>@{BMCdefault}[2]</arg>
+<arg>"</arg>
+</arguments>
+<assign>
+<var>@{passwordBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:36:54.494" level="INFO">@{passwordBMCdefault} = [  | admin |  ]</msg>
+<status status="PASS" endtime="20151113 13:36:54.495" starttime="20151113 13:36:54.493"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{passwordBMCdefault}[1]</arg>
+</arguments>
+<assign>
+<var>${passwordBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:36:54.496" level="INFO">${passwordBMCdefault} = admin</msg>
+<status status="PASS" endtime="20151113 13:36:54.496" starttime="20151113 13:36:54.495"></status>
+</kw>
+<msg timestamp="20151113 13:36:54.497" level="INFO">${username-BMC-default} = admin</msg>
+<msg timestamp="20151113 13:36:54.497" level="INFO">${password-BMC-default} = admin</msg>
+<status status="PASS" endtime="20151113 13:36:54.497" starttime="20151113 13:36:52.015"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${username-BMC-default}</arg>
+<arg>${username-BMC}</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:54.499" starttime="20151113 13:36:54.498"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${password-BMC-default}</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:36:54.502" starttime="20151113 13:36:54.501"></status>
+</kw>
+<kw name="关闭浏览器" library="MyKeyword">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151113 13:36:55.990" starttime="20151113 13:36:54.503"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:36:55.992" starttime="20151113 13:36:54.503"></status>
+</kw>
+<doc>Default Configuration页面，密码和confirm passwor一致</doc>
+<tags>
+<tag>DefaultConfiguration</tag>
+<tag>done</tag>
+</tags>
+<status status="PASS" endtime="20151113 13:36:55.994" critical="yes" starttime="20151113 13:36:40.527"></status>
+</test>
+<test id="s1-s1-t7" name="Default_007">
+<kw name="登录web页面" library="MyFlow">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>${username-admin}</arg>
+<arg>${password-admin}</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151113 13:36:56.018" level="INFO">Opening browser 'chrome' to base url 'http://172.30.10.130'</msg>
+<status status="PASS" endtime="20151113 13:37:01.924" starttime="20151113 13:36:56.017"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151113 13:37:02.113" starttime="20151113 13:37:01.925"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:02.114" level="INFO">Typing text 'omcadmin' into text field 'id=id_username'</msg>
+<status status="PASS" endtime="20151113 13:37:02.196" starttime="20151113 13:37:02.113"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:02.197" level="INFO">Typing password into text field 'id=id_password'</msg>
+<status status="PASS" endtime="20151113 13:37:02.318" starttime="20151113 13:37:02.197"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=[type=submit]</arg>
+</arguments>
+<msg timestamp="20151113 13:37:02.320" level="INFO">Clicking button 'css=[type=submit]'.</msg>
+<status status="PASS" endtime="20151113 13:37:02.411" starttime="20151113 13:37:02.319"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=user_info</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:03.941" starttime="20151113 13:37:02.412"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:37:03.942" starttime="20151113 13:36:56.015"></status>
+</kw>
+<kw name="点击默认设置" library="MyFlow">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:03.976" starttime="20151113 13:37:03.943"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<msg timestamp="20151113 13:37:03.977" level="INFO">Clicking element 'Xpath=//i[@class="icon-setting"]'.</msg>
+<status status="PASS" endtime="20151113 13:37:04.037" starttime="20151113 13:37:03.977"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:04.313" starttime="20151113 13:37:04.037"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<msg timestamp="20151113 13:37:04.314" level="INFO">Clicking element 'Xpath=//a[@href="/hardware/globalattributes/"]'.</msg>
+<status status="PASS" endtime="20151113 13:37:04.378" starttime="20151113 13:37:04.313"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:05.033" starttime="20151113 13:37:04.378"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:37:05.034" starttime="20151113 13:37:03.942"></status>
+</kw>
+<kw name="创建随机序列">
+<doc>输入一个数字或字母字符串string，和一个不大于字符串长度的自然数n，随机返回一个长度为n的字符串</doc>
+<arguments>
+<arg>1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890</arg>
+<arg>64</arg>
+</arguments>
+<assign>
+<var>${sample}</var>
+</assign>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>random.sample("""${characterString}""",${amount})</arg>
+<arg>modules=random</arg>
+</arguments>
+<assign>
+<var>${sample}</var>
+</assign>
+<msg timestamp="20151113 13:37:05.039" level="INFO">${sample} = ['5', '2', 't', '0', 'T', '1', 's', 'V', '6', 'S', 'R', '7', 'a', 'L', 'M', 'v', '8', 'l', 'k', '6', 'H', 'c', 'E', '3', 'i', 'd', 'K', 'N', 'U', 'O', '4', 'm', 'z', 'Z', 'W', '4', 'Q', 'h', 'C', 'D',...</msg>
+<status status="PASS" endtime="20151113 13:37:05.039" starttime="20151113 13:37:05.037"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>"".join(${sample})</arg>
+</arguments>
+<assign>
+<var>${sample}</var>
+</assign>
+<msg timestamp="20151113 13:37:05.042" level="INFO">${sample} = 52t0T1sV6SR7aLMv8lk6HcE3idKNUO4mzZW4QhCD5q0n9pIGoe3y2jXPwfu7x8BF</msg>
+<status status="PASS" endtime="20151113 13:37:05.043" starttime="20151113 13:37:05.040"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${sample}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:05.044" level="INFO">52t0T1sV6SR7aLMv8lk6HcE3idKNUO4mzZW4QhCD5q0n9pIGoe3y2jXPwfu7x8BF</msg>
+<status status="PASS" endtime="20151113 13:37:05.044" starttime="20151113 13:37:05.043"></status>
+</kw>
+<msg timestamp="20151113 13:37:05.045" level="INFO">${sample} = 52t0T1sV6SR7aLMv8lk6HcE3idKNUO4mzZW4QhCD5q0n9pIGoe3y2jXPwfu7x8BF</msg>
+<status status="PASS" endtime="20151113 13:37:05.045" starttime="20151113 13:37:05.036"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${sample}</arg>
+</arguments>
+<assign>
+<var>${username-BMC}</var>
+</assign>
+<msg timestamp="20151113 13:37:05.047" level="INFO">${username-BMC} = 52t0T1sV6SR7aLMv8lk6HcE3idKNUO4mzZW4QhCD5q0n9pIGoe3y2jXPwfu7x8BF</msg>
+<status status="PASS" endtime="20151113 13:37:05.047" starttime="20151113 13:37:05.046"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+<arg>${username-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:05.049" level="INFO">Typing text '52t0T1sV6SR7aLMv8lk6HcE3idKNUO4mzZW4QhCD5q0n9pIGoe3y2jXPwfu7x8BF' into text field 'Xpath=//input[@id="id_default_username"]'</msg>
+<status status="PASS" endtime="20151113 13:37:05.256" starttime="20151113 13:37:05.048"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_pwd"]</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:05.258" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_default_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:37:05.755" starttime="20151113 13:37:05.257"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_confirm_pwd"]</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:05.758" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_confirm_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:37:05.876" starttime="20151113 13:37:05.756"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//button[@type="submit"]</arg>
+</arguments>
+<msg timestamp="20151113 13:37:05.878" level="INFO">Clicking element 'Xpath=//button[@type="submit"]'.</msg>
+<status status="PASS" endtime="20151113 13:37:05.957" starttime="20151113 13:37:05.877"></status>
+</kw>
+<kw name="提示成功" library="MyKeyword">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:07.496" starttime="20151113 13:37:05.960"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:37:07.496" starttime="20151113 13:37:05.959"></status>
+</kw>
+<kw name="获取实际的BMC用户名和密码">
+<assign>
+<var>${username-BMC-default}</var>
+<var>${password-BMC-default}</var>
+</assign>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${ip-mn}</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:07.500" starttime="20151113 13:37:07.499"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${username-mn}</arg>
+<arg>${password-mn}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:07.501" level="INFO">Logging into '172.30.10.130:22' as 'root'.</msg>
+<msg timestamp="20151113 13:37:08.662" level="INFO">Read output: Last login: Fri Nov 13 13:36:45 2015 from 172.24.18.173
+[root@localhost ~]#</msg>
+<status status="PASS" endtime="20151113 13:37:08.662" starttime="20151113 13:37:07.500"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes `command` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>tabdump passwd</arg>
+</arguments>
+<assign>
+<var>${stdout}</var>
+</assign>
+<msg timestamp="20151113 13:37:08.663" level="INFO">Executing command 'tabdump passwd'.</msg>
+<msg timestamp="20151113 13:37:09.905" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20151113 13:37:09.905" level="INFO">${stdout} = #key,username,password,cryptmethod,authdomain,comments,disable
+"xcat","root","teamsun",,,,
+"system","root","teamsun",,,,
+"omapi","xcat_key","V1dyS1lYQWdUQmxIaENKTUw0Z25McTBhTTZobm96R3I=",,,,
+"ipmi","5...</msg>
+<status status="PASS" endtime="20151113 13:37:09.906" starttime="20151113 13:37:08.663"></status>
+</kw>
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>String</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:09.908" starttime="20151113 13:37:09.906"></status>
+</kw>
+<kw name="Get Lines Containing String" library="String">
+<doc>Returns lines of the given ``string`` that contain the ``pattern``.</doc>
+<arguments>
+<arg>${stdout}</arg>
+<arg>ipmi</arg>
+</arguments>
+<assign>
+<var>${ipmiline}</var>
+</assign>
+<msg timestamp="20151113 13:37:09.909" level="INFO">1 out of 5 lines matched</msg>
+<msg timestamp="20151113 13:37:09.909" level="INFO">${ipmiline} = "ipmi","52t0T1sV6SR7aLMv8lk6HcE3idKNUO4mzZW4QhCD5q0n9pIGoe3y2jXPwfu7x8BF","admin",,,,</msg>
+<status status="PASS" endtime="20151113 13:37:09.909" starttime="20151113 13:37:09.908"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${ipmiline}</arg>
+<arg>,</arg>
+</arguments>
+<assign>
+<var>@{BMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:37:09.910" level="INFO">@{BMCdefault} = [ "ipmi" | "52t0T1sV6SR7aLMv8lk6HcE3idKNUO4mzZW4QhCD5q0n9pIGoe3y2jXPwfu7x8BF" | "admin" |  |  |  |  ]</msg>
+<status status="PASS" endtime="20151113 13:37:09.911" starttime="20151113 13:37:09.909"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>@{BMCdefault}[1]</arg>
+<arg>"</arg>
+</arguments>
+<assign>
+<var>@{usernameBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:37:09.912" level="INFO">@{usernameBMCdefault} = [  | 52t0T1sV6SR7aLMv8lk6HcE3idKNUO4mzZW4QhCD5q0n9pIGoe3y2jXPwfu7x8BF |  ]</msg>
+<status status="PASS" endtime="20151113 13:37:09.912" starttime="20151113 13:37:09.911"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{usernameBMCdefault}[1]</arg>
+</arguments>
+<assign>
+<var>${usernameBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:37:09.913" level="INFO">${usernameBMCdefault} = 52t0T1sV6SR7aLMv8lk6HcE3idKNUO4mzZW4QhCD5q0n9pIGoe3y2jXPwfu7x8BF</msg>
+<status status="PASS" endtime="20151113 13:37:09.913" starttime="20151113 13:37:09.912"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>@{BMCdefault}[2]</arg>
+<arg>"</arg>
+</arguments>
+<assign>
+<var>@{passwordBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:37:09.914" level="INFO">@{passwordBMCdefault} = [  | admin |  ]</msg>
+<status status="PASS" endtime="20151113 13:37:09.914" starttime="20151113 13:37:09.913"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{passwordBMCdefault}[1]</arg>
+</arguments>
+<assign>
+<var>${passwordBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:37:09.915" level="INFO">${passwordBMCdefault} = admin</msg>
+<status status="PASS" endtime="20151113 13:37:09.915" starttime="20151113 13:37:09.915"></status>
+</kw>
+<msg timestamp="20151113 13:37:09.916" level="INFO">${username-BMC-default} = 52t0T1sV6SR7aLMv8lk6HcE3idKNUO4mzZW4QhCD5q0n9pIGoe3y2jXPwfu7x8BF</msg>
+<msg timestamp="20151113 13:37:09.916" level="INFO">${password-BMC-default} = admin</msg>
+<status status="PASS" endtime="20151113 13:37:09.916" starttime="20151113 13:37:07.498"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${username-BMC-default}</arg>
+<arg>${username-BMC}</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:09.919" starttime="20151113 13:37:09.918"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${password-BMC-default}</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:09.921" starttime="20151113 13:37:09.920"></status>
+</kw>
+<kw name="关闭浏览器" library="MyKeyword">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151113 13:37:11.180" starttime="20151113 13:37:09.922"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:37:11.181" starttime="20151113 13:37:09.922"></status>
+</kw>
+<doc>输入64位混合数字和字母的用户名</doc>
+<tags>
+<tag>DefaultConfiguration</tag>
+<tag>done</tag>
+</tags>
+<status status="PASS" endtime="20151113 13:37:11.182" critical="yes" starttime="20151113 13:36:56.001"></status>
+</test>
+<test id="s1-s1-t8" name="Default_008">
+<kw name="登录web页面" library="MyFlow">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>${username-admin}</arg>
+<arg>${password-admin}</arg>
+</arguments>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:11.195" level="INFO">Opening browser 'chrome' to base url 'http://172.30.10.130'</msg>
+<status status="PASS" endtime="20151113 13:37:16.118" starttime="20151113 13:37:11.194"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151113 13:37:16.308" starttime="20151113 13:37:16.119"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:16.310" level="INFO">Typing text 'omcadmin' into text field 'id=id_username'</msg>
+<status status="PASS" endtime="20151113 13:37:16.393" starttime="20151113 13:37:16.309"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=id_password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:16.394" level="INFO">Typing password into text field 'id=id_password'</msg>
+<status status="PASS" endtime="20151113 13:37:16.530" starttime="20151113 13:37:16.393"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=[type=submit]</arg>
+</arguments>
+<msg timestamp="20151113 13:37:16.532" level="INFO">Clicking button 'css=[type=submit]'.</msg>
+<status status="PASS" endtime="20151113 13:37:16.627" starttime="20151113 13:37:16.531"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=user_info</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:18.237" starttime="20151113 13:37:16.627"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:37:18.238" starttime="20151113 13:37:11.192"></status>
+</kw>
+<kw name="点击默认设置" library="MyFlow">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:18.268" starttime="20151113 13:37:18.239"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//i[@class="icon-setting"]</arg>
+</arguments>
+<msg timestamp="20151113 13:37:18.269" level="INFO">Clicking element 'Xpath=//i[@class="icon-setting"]'.</msg>
+<status status="PASS" endtime="20151113 13:37:18.315" starttime="20151113 13:37:18.269"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:18.588" starttime="20151113 13:37:18.316"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//a[@href="/hardware/globalattributes/"]</arg>
+</arguments>
+<msg timestamp="20151113 13:37:18.590" level="INFO">Clicking element 'Xpath=//a[@href="/hardware/globalattributes/"]'.</msg>
+<status status="PASS" endtime="20151113 13:37:18.665" starttime="20151113 13:37:18.589"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:19.312" starttime="20151113 13:37:18.665"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:37:19.313" starttime="20151113 13:37:18.238"></status>
+</kw>
+<kw name="创建随机序列">
+<doc>输入一个数字或字母字符串string，和一个不大于字符串长度的自然数n，随机返回一个长度为n的字符串</doc>
+<arguments>
+<arg>1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890</arg>
+<arg>64</arg>
+</arguments>
+<assign>
+<var>${sample}</var>
+</assign>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>random.sample("""${characterString}""",${amount})</arg>
+<arg>modules=random</arg>
+</arguments>
+<assign>
+<var>${sample}</var>
+</assign>
+<msg timestamp="20151113 13:37:19.318" level="INFO">${sample} = ['Y', 'B', 'i', 'q', 'M', '1', 'C', 'W', 'F', 'J', '4', 'a', 'r', 'd', '2', '5', 'c', 'S', 'm', 'V', 'j', 'E', '9', 'w', 'K', 'g', '7', '7', 'T', 'N', '5', 'f', 'I', 'L', 'D', '0', '9', 'P', 'h', 'v',...</msg>
+<status status="PASS" endtime="20151113 13:37:19.318" starttime="20151113 13:37:19.316"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>"".join(${sample})</arg>
+</arguments>
+<assign>
+<var>${sample}</var>
+</assign>
+<msg timestamp="20151113 13:37:19.320" level="INFO">${sample} = YBiqM1CWFJ4ard25cSmVjE9wKg77TN5fILD09PhvA6sn8XptU80kOubHZ6e3z34l</msg>
+<status status="PASS" endtime="20151113 13:37:19.321" starttime="20151113 13:37:19.318"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${sample}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:19.321" level="INFO">YBiqM1CWFJ4ard25cSmVjE9wKg77TN5fILD09PhvA6sn8XptU80kOubHZ6e3z34l</msg>
+<status status="PASS" endtime="20151113 13:37:19.322" starttime="20151113 13:37:19.321"></status>
+</kw>
+<msg timestamp="20151113 13:37:19.322" level="INFO">${sample} = YBiqM1CWFJ4ard25cSmVjE9wKg77TN5fILD09PhvA6sn8XptU80kOubHZ6e3z34l</msg>
+<status status="PASS" endtime="20151113 13:37:19.322" starttime="20151113 13:37:19.315"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${sample}</arg>
+</arguments>
+<assign>
+<var>${password-BMC}</var>
+</assign>
+<msg timestamp="20151113 13:37:19.324" level="INFO">${password-BMC} = YBiqM1CWFJ4ard25cSmVjE9wKg77TN5fILD09PhvA6sn8XptU80kOubHZ6e3z34l</msg>
+<status status="PASS" endtime="20151113 13:37:19.325" starttime="20151113 13:37:19.324"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_username"]</arg>
+<arg>${username-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:19.326" level="INFO">Typing text 'admin' into text field 'Xpath=//input[@id="id_default_username"]'</msg>
+<status status="PASS" endtime="20151113 13:37:19.416" starttime="20151113 13:37:19.326"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_default_pwd"]</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:19.423" level="INFO">Typing text 'YBiqM1CWFJ4ard25cSmVjE9wKg77TN5fILD09PhvA6sn8XptU80kOubHZ6e3z34l' into text field 'Xpath=//input[@id="id_default_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:37:19.641" starttime="20151113 13:37:19.421"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//input[@id="id_confirm_pwd"]</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:19.643" level="INFO">Typing text 'YBiqM1CWFJ4ard25cSmVjE9wKg77TN5fILD09PhvA6sn8XptU80kOubHZ6e3z34l' into text field 'Xpath=//input[@id="id_confirm_pwd"]'</msg>
+<status status="PASS" endtime="20151113 13:37:20.213" starttime="20151113 13:37:19.641"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>Xpath=//button[@type="submit"]</arg>
+</arguments>
+<msg timestamp="20151113 13:37:20.215" level="INFO">Clicking element 'Xpath=//button[@type="submit"]'.</msg>
+<status status="PASS" endtime="20151113 13:37:20.623" starttime="20151113 13:37:20.214"></status>
+</kw>
+<kw name="提示成功" library="MyKeyword">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:22.229" starttime="20151113 13:37:20.625"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:37:22.230" starttime="20151113 13:37:20.624"></status>
+</kw>
+<kw name="获取实际的BMC用户名和密码">
+<assign>
+<var>${username-BMC-default}</var>
+<var>${password-BMC-default}</var>
+</assign>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${ip-mn}</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:22.233" starttime="20151113 13:37:22.232"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${username-mn}</arg>
+<arg>${password-mn}</arg>
+</arguments>
+<msg timestamp="20151113 13:37:22.234" level="INFO">Logging into '172.30.10.130:22' as 'root'.</msg>
+<msg timestamp="20151113 13:37:23.417" level="INFO">Read output: Last login: Fri Nov 13 13:37:01 2015 from 172.24.18.173
+[root@localhost ~]#</msg>
+<status status="PASS" endtime="20151113 13:37:23.418" starttime="20151113 13:37:22.233"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes `command` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>tabdump passwd</arg>
+</arguments>
+<assign>
+<var>${stdout}</var>
+</assign>
+<msg timestamp="20151113 13:37:23.420" level="INFO">Executing command 'tabdump passwd'.</msg>
+<msg timestamp="20151113 13:37:24.665" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20151113 13:37:24.673" level="INFO">${stdout} = #key,username,password,cryptmethod,authdomain,comments,disable
+"xcat","root","teamsun",,,,
+"system","root","teamsun",,,,
+"omapi","xcat_key","V1dyS1lYQWdUQmxIaENKTUw0Z25McTBhTTZobm96R3I=",,,,
+"ipmi","a...</msg>
+<status status="PASS" endtime="20151113 13:37:24.673" starttime="20151113 13:37:23.419"></status>
+</kw>
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>String</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:24.678" starttime="20151113 13:37:24.674"></status>
+</kw>
+<kw name="Get Lines Containing String" library="String">
+<doc>Returns lines of the given ``string`` that contain the ``pattern``.</doc>
+<arguments>
+<arg>${stdout}</arg>
+<arg>ipmi</arg>
+</arguments>
+<assign>
+<var>${ipmiline}</var>
+</assign>
+<msg timestamp="20151113 13:37:24.682" level="INFO">1 out of 5 lines matched</msg>
+<msg timestamp="20151113 13:37:24.683" level="INFO">${ipmiline} = "ipmi","admin","YBiqM1CWFJ4ard25cSmVjE9wKg77TN5fILD09PhvA6sn8XptU80kOubHZ6e3z34l",,,,</msg>
+<status status="PASS" endtime="20151113 13:37:24.683" starttime="20151113 13:37:24.680"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${ipmiline}</arg>
+<arg>,</arg>
+</arguments>
+<assign>
+<var>@{BMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:37:24.686" level="INFO">@{BMCdefault} = [ "ipmi" | "admin" | "YBiqM1CWFJ4ard25cSmVjE9wKg77TN5fILD09PhvA6sn8XptU80kOubHZ6e3z34l" |  |  |  |  ]</msg>
+<status status="PASS" endtime="20151113 13:37:24.686" starttime="20151113 13:37:24.684"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>@{BMCdefault}[1]</arg>
+<arg>"</arg>
+</arguments>
+<assign>
+<var>@{usernameBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:37:24.687" level="INFO">@{usernameBMCdefault} = [  | admin |  ]</msg>
+<status status="PASS" endtime="20151113 13:37:24.688" starttime="20151113 13:37:24.686"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{usernameBMCdefault}[1]</arg>
+</arguments>
+<assign>
+<var>${usernameBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:37:24.689" level="INFO">${usernameBMCdefault} = admin</msg>
+<status status="PASS" endtime="20151113 13:37:24.689" starttime="20151113 13:37:24.688"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>@{BMCdefault}[2]</arg>
+<arg>"</arg>
+</arguments>
+<assign>
+<var>@{passwordBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:37:24.691" level="INFO">@{passwordBMCdefault} = [  | YBiqM1CWFJ4ard25cSmVjE9wKg77TN5fILD09PhvA6sn8XptU80kOubHZ6e3z34l |  ]</msg>
+<status status="PASS" endtime="20151113 13:37:24.691" starttime="20151113 13:37:24.690"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{passwordBMCdefault}[1]</arg>
+</arguments>
+<assign>
+<var>${passwordBMCdefault}</var>
+</assign>
+<msg timestamp="20151113 13:37:24.692" level="INFO">${passwordBMCdefault} = YBiqM1CWFJ4ard25cSmVjE9wKg77TN5fILD09PhvA6sn8XptU80kOubHZ6e3z34l</msg>
+<status status="PASS" endtime="20151113 13:37:24.692" starttime="20151113 13:37:24.691"></status>
+</kw>
+<msg timestamp="20151113 13:37:24.693" level="INFO">${username-BMC-default} = admin</msg>
+<msg timestamp="20151113 13:37:24.694" level="INFO">${password-BMC-default} = YBiqM1CWFJ4ard25cSmVjE9wKg77TN5fILD09PhvA6sn8XptU80kOubHZ6e3z34l</msg>
+<status status="PASS" endtime="20151113 13:37:24.694" starttime="20151113 13:37:22.232"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${username-BMC-default}</arg>
+<arg>${username-BMC}</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:24.696" starttime="20151113 13:37:24.695"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${password-BMC-default}</arg>
+<arg>${password-BMC}</arg>
+</arguments>
+<status status="PASS" endtime="20151113 13:37:24.698" starttime="20151113 13:37:24.697"></status>
+</kw>
+<kw name="关闭浏览器" library="MyKeyword">
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151113 13:37:25.957" starttime="20151113 13:37:24.700"></status>
+</kw>
+<status status="PASS" endtime="20151113 13:37:25.959" starttime="20151113 13:37:24.699"></status>
+</kw>
+<doc>输入64位混合数字和字母的密码</doc>
+<tags>
+<tag>DefaultConfiguration</tag>
+<tag>done</tag>
+</tags>
+<status status="PASS" endtime="20151113 13:37:25.960" critical="yes" starttime="20151113 13:37:11.190"></status>
+</test>
+<status status="FAIL" endtime="20151113 13:37:25.967" starttime="20151113 13:34:40.945"></status>
+</suite>
+<status status="FAIL" endtime="20151113 13:37:25.983" starttime="20151113 13:34:40.812"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="2" pass="6">Critical Tests</stat>
+<stat fail="2" pass="6">All Tests</stat>
+</total>
+<tag>
+<stat fail="2" pass="6">DefaultConfiguration</stat>
+<stat fail="2" pass="6">done</stat>
+</tag>
+<suite>
+<stat fail="2" id="s1" name="OMCTest" pass="6">OMCTest</stat>
+<stat fail="2" id="s1-s1" name="DefaultConfiguration" pass="6">OMCTest.DefaultConfiguration</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

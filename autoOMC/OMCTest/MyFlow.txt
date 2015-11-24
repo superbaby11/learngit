@@ -1,0 +1,96 @@
+*** Keywords ***
+登录web页面
+    [Arguments]    ${url}    ${browser}    ${username}    ${password}
+    Open Browser    ${url}    ${browser}
+    Maximize Browser Window
+    Input Text    id=id_username    ${username}
+    Input password    id=id_password    ${password}
+    Click Button    css=[type=submit]
+    Wait Until Page Contains Element    id=user_info
+
+设置系统语言英文
+    Click Link    css=[href='/settings/']
+    Select From List By Value    id=id_language    en
+    Click Button    css=[type='submit']
+    Wait Until Page Contains Element    xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']
+    Click Element    Xpath=//dl[@class='nav_accordion']/dt[2]
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd[2]/div[1]/ul/li/a
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd[2]/div[1]/ul/li/a
+
+设置系统时区东八区
+    Click Link    css=[href='/settings/']
+    Select From List By Value    id=id_timezone    Asia/Shanghai
+    Click Button    css=[type='submit']
+    Wait Until Page Contains Element    xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']
+    Click Element    Xpath=//dl[@class='nav_accordion']/dt[2]
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd[2]/div[1]/ul/li/a
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd[2]/div[1]/ul/li/a
+
+设置系统每页显示条目数
+    [Arguments]    ${pageSize}
+    Click Link    css=[href='/settings/']
+    Clear Element Text    id=id_pagesize
+    Input Text    id=id_pagesize    ${pageSize}
+    Click Button    css=[type='submit']
+    Wait Until Page Contains Element    xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']
+    Click Element    Xpath=//dl[@class='nav_accordion']/dt[2]
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd[2]/div[1]/ul/li/a
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd[2]/div[1]/ul/li/a
+
+设置修改当前用户密码
+    [Arguments]    ${currentPassword}    ${newPassword}    ${confirmPassword}
+    Click Link    css=[href='/settings/']
+    Wait Until Page Contains Element    Xpath=//ul/li/a[@href='/settings/password/']
+    Click Element    Xpath=//ul/li/a[@href='/settings/password/']
+    Wait Until Page Contains Element    id=id_current_password
+    Input Text    id=id_current_password    ${currentPassword}
+    Input Text    id=id_new_password    ${newPassword}
+    Input Text    id=id_confirm_password    ${confirmPassword}
+    Click Button    css=[type='submit']
+
+当前用户退出
+    Click Element    Xpath=//ul/li[2]/a/span[@class='icon-tools icon-tools-export']
+    Wait Until Page Contains Element    id=id_username
+    Wait Until Page Contains Element    id=id_password
+
+点击全部系统
+    Wait Until Element Is Visible    Xpath=//i[@class='icon-resource']
+    Click Element    Xpath=//i[@class='icon-resource']
+    Wait Until Element Is Visible    Xpath=//a[@href="/hardware/servers/"]
+    Click Element    Xpath=//a[@href="/hardware/servers/"]
+    Wait Until Page Contains Element    Xpath=//table[@id="servers"]
+
+点击欢迎
+    Wait Until Element Is Visible    Xpath=//i[@class="icon-welcome"]
+    Click Element    Xpath=//i[@class="icon-welcome"]
+    Wait Until Element Is Visible    Xpath=//a[@href="/hardware/"]
+    Click Element    Xpath=//a[@href="/hardware/"]
+    Wait Until Page Contains Element    Xpath=//form[@id="license_form"]
+
+点击网络
+    Wait Until Element Is Visible    Xpath=//i[@class="icon-setting"]
+    Click Element    Xpath=//i[@class="icon-setting"]
+    Wait Until Element Is Visible    Xpath=//a[@href="/hardware/network/"]
+    Click Element    Xpath=//a[@href="/hardware/network/"]
+    Wait Until Page Contains Element    Xpath=//select[@id="id_adapters"]
+
+点击发现
+    Wait Until Element Is Visible    Xpath=//i[@class='icon-resource']
+    Click Element    Xpath=//i[@class='icon-resource']
+    Wait Until Element Is Visible    Xpath=//a[@href="/hardware/discovery/"]
+    Click Element    Xpath=//a[@href="/hardware/discovery/"]
+    Wait Until Page Contains Element    Xpath=//select[@id="id_ip_range"]
+
+点击默认设置
+    Wait Until Element Is Visible    Xpath=//i[@class="icon-setting"]
+    Click Element    Xpath=//i[@class="icon-setting"]
+    Wait Until Element Is Visible    Xpath=//a[@href="/hardware/globalattributes/"]
+    Click Element    Xpath=//a[@href="/hardware/globalattributes/"]
+    Wait Until Page Contains Element    Xpath=//input[@id="id_default_username"]
+
+点击日志
+    Wait Until Element Is Visible    Xpath=//i[@class="icon-log"]
+    Click Element    Xpath=//i[@class="icon-log"]
+    Wait Until Element Is Visible    Xpath=//a[@href="/hardware/logs/"]
+    Click Element    Xpath=//a[@href="/hardware/logs/"]
+    Wait Until Page Contains Element    Xpath=//table[@id="logs"]

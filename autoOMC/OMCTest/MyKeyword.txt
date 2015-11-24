@@ -1,0 +1,34 @@
+*** Keywords ***
+打开浏览器
+    [Arguments]    ${url}    ${browser}
+    [Documentation]    url \ \ \ :the web address you want to go
+    Open Browser    ${url}    ${browser}
+
+输入web用户名称
+    [Arguments]    ${username}
+    Wait Until Page Contains Element    id=id_username
+    Input Text    id=id_username    ${username}
+
+输入web用户密码
+    [Arguments]    ${password}
+    Wait Until Page Contains Element    id=id_password
+    Input password    id=id_password    ${password}
+
+提交
+    Wait Until Page Contains Element    css=[type=submit]
+    Click Button    css=[type=submit]
+
+最大化窗口
+    Maximize Browser Window
+
+关闭浏览器
+    Close Browser
+
+提示成功
+    Wait Until Page Contains Element    xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']    10
+
+提示错误
+    Wait Until Page Contains Element    xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-error fade in']    10
+
+提示警告
+    Wait Until Page Contains Element    Xpath=//div[@class="alert alert-block alert-warning fade in"]

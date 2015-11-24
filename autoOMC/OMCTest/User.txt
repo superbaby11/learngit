@@ -1,0 +1,651 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          MyKeyword.txt
+Resource          MyFlow.txt
+Library           SSHLibrary
+Resource          MyVariable.txt
+
+*** Variables ***
+
+*** Test Cases ***
+User_006
+    [Documentation]    4位长度，只有字母
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    abcd    156753255@qq.com    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    abcd
+    关闭浏览器
+
+User_007
+    [Documentation]    4位长度，只有数字
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    1234    156753255@qq.com    1234    1234
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    1234    1234
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    1234
+    关闭浏览器
+
+User_008
+    [Documentation]    4位长度，只有特殊字符
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    !@#$    156753255@qq.com    !@#$    !@#$
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    !@#$    !@#$
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    !@#$
+    关闭浏览器
+
+User_009
+    [Documentation]    全部的字母和数字和特殊字符混合在一起，长度63位
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    1234567890qwertyuiopASDFGHJKLzxcvbnm!@#$%^&*()_+|}{<>?，。、[]、    156753255@qq.com    1234567890qwertyuiopASDFGHJKLzxcvbnm!@#$%^&*()_+|}{<>?，。、[]、    1234567890qwertyuiopASDFGHJKLzxcvbnm!@#$%^&*()_+|}{<>?，。、[]、
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    1234567890qwertyuiopASDFGHJKLzxcvbnm!@#$%^&*()_+|}{<>?，。、[]、    1234567890qwertyuiopASDFGHJKLzxcvbnm!@#$%^&*()_+|}{<>?，。、[]、
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    1234567890qwertyuiopASDFGHJKLzxcvbnm!@#$%^&*()_+|}{<>?，。、[]、
+    关闭浏览器
+
+User_010
+    [Documentation]    4位长度，只有字母的密码
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    cvbn    156753255@qq.com    cvbn    cvbn
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    cvbn    cvbn
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    cvbn
+    关闭浏览器
+
+User_011
+    [Documentation]    4位长度，只有数字的密码
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    8520    156753255@qq.com    8520    8520
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    8520    8520
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    8520
+    关闭浏览器
+
+User_012
+    [Documentation]    4位长度，只有特殊字符
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    ][,.    156753255@qq.com    ][,.    ][,.
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    ][,.    ][,.
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    ][,.
+    关闭浏览器
+
+User_013
+    [Documentation]    全部的字母和数字和特殊字符混合在一起，长度63位
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_    156753255@qq.com    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_
+    关闭浏览器
+
+User_014
+    [Documentation]    创建超级用户
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    abcd    156753255@qq.com    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    abcd
+    关闭浏览器
+
+User_015
+    [Documentation]    创建普通用户
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建monitor权限用户    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_    156753255@qq.com    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_
+    关闭浏览器
+
+User_018
+    [Documentation]    删除单个用户
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建monitor权限用户    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_    156753255@qq.com    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    1234567890qwertyuiopASDFGHJKLzxcvbnm,./<>?;:[]\{}|=+-_
+    关闭浏览器
+
+User_020
+    [Documentation]    编辑用户
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    编辑用户    admin    adminadmin    475996@qq.com    adminadmin    adminadmin
+    输入web用户名称    adminadmin
+    输入web用户密码    adminadmin
+    提交
+    编辑用户    adminadmin    admin    475996@qq.com    123456    123456
+    输入web用户名称    admin
+    输入web用户密码    123456
+    提交
+    提示成功
+    关闭浏览器
+
+User_021
+    [Documentation]    禁用用户
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    abcd    156753255@qq.com    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    more按钮disable操作    abcd
+    关闭浏览器
+    验证登录失败    http://172.30.10.121    gc    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    abcd
+    关闭浏览器
+
+User_022
+    [Documentation]    激活用户
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    abcd    156753255@qq.com    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    more按钮disable操作    abcd
+    关闭浏览器
+    验证登录失败    http://172.30.10.121    gc    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    more按钮enable操作    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    abcd
+    关闭浏览器
+
+User_023
+    [Documentation]    从更多选项中删除用户
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    abcd    156753255@qq.com    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    more按钮delete操作    abcd
+    关闭浏览器
+
+User_024
+    [Documentation]    从更多选项中删除被禁用用户
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    abcd    156753255@qq.com    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    more按钮disable操作    abcd
+    关闭浏览器
+    验证登录失败    http://172.30.10.121    gc    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    more按钮delete操作    abcd
+    关闭浏览器
+
+User_025
+    [Documentation]    筛选用户
+    [Tags]    Doing
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    创建admin权限用户    abcd    156753255@qq.com    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    abcd    abcd
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    筛选用户可见    abcd
+    筛选用户不可见    abcd    badstring
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    删除用户    abcd
+    关闭浏览器
+
+User_027
+    [Documentation]    无效的用户名和密码登录
+    [Tags]    Done
+    验证登录失败    http://172.30.10.121    gc    a2wsf766)((*&    a2wsf766)((*&
+    关闭浏览器
+
+User_028
+    [Documentation]    正确的用户名和密码登录
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    关闭浏览器
+
+User_029
+    [Documentation]    进入用户设置
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    关闭浏览器
+
+User_030
+    [Documentation]    更改语言
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统语言英文
+    关闭浏览器
+
+User_031
+    [Documentation]    更改时区
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统时区东八区
+    关闭浏览器
+
+User_032
+    [Documentation]    更改全局每页条目数(以日志为例)
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置系统每页显示条目数    30
+    关闭浏览器
+
+User_033
+    [Documentation]    修改密码
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置修改当前用户密码    123456    12345678    12345678
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    12345678
+    设置修改当前用户密码    12345678    123456    123456
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    关闭浏览器
+
+User_034
+    [Documentation]    输入错误的当前密码
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    设置修改当前用户密码    1234    12345678    12345678
+    提示错误
+    关闭浏览器
+
+User_036
+    [Documentation]    点击退出按钮
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    admin    123456
+    当前用户退出
+    关闭浏览器
+
+User_037
+    [Documentation]    登陆monitor用户
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    关闭浏览器
+
+User_038
+    [Documentation]    更改语言（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    设置系统语言英文
+    关闭浏览器
+
+User_039
+    [Documentation]    更改时区（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    设置系统时区东八区
+    关闭浏览器
+
+User_040
+    [Documentation]    更改全局每页条目数(以日志为例)（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    设置系统每页显示条目数    30
+    关闭浏览器
+
+User_041
+    [Documentation]    修改密码（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    设置修改当前用户密码    123456    12345678    12345678
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    omcmonitor    12345678
+    设置修改当前用户密码    12345678    123456    123456
+    关闭浏览器
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    关闭浏览器
+
+User_042
+    [Documentation]    输入错误的当前密码（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    设置修改当前用户密码    1234    12345678    12345678
+    提示错误
+    关闭浏览器
+
+User_044
+    [Documentation]    点击退出按钮（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    当前用户退出
+    关闭浏览器
+
+User_045
+    [Documentation]    点击setting（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    对于monitor用户，security不可见
+    当前用户退出
+    关闭浏览器
+
+User_046
+    [Documentation]    dhcp分配ip失败（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    对于monitor用户，配置Network不成功
+    关闭浏览器
+
+User_047
+    [Documentation]    查看镜像（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    对于monitor用户，ISO页面没有删除按钮
+    关闭浏览器
+
+User_048
+    [Documentation]    查看软件包（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    对于monitor用户，Application页面没有删除按钮
+    关闭浏览器
+
+User_049
+    [Documentation]    查看节点（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    对于monitor用户，Application页面没有删除按钮
+    关闭浏览器
+
+User_050
+    [Documentation]    查看log（monitor用户）
+    [Tags]    Done
+    登录web页面    http://172.30.10.121    gc    omcmonitor    123456
+    对于monitor用户，可以查看log
+    关闭浏览器
+
+temp
+    [Tags]    log
+    set    ${wang}    1234    1234    1234    1234    1234
+    ...    1234    1234    1234    1234    1234
+    log    ${wang}
+    log    12345678901234567890
+    ${wang}    Catenate    ${wang}    ${SPACE}    ${wang}
+    log    ${wang}
+    log    12345678901234567890
+    log    ${TEST_NAME}
+
+*** Keywords ***
+more按钮disable操作
+    [Arguments]    ${userAccount}
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/users/']
+    Click Element    Xpath=//a[@href='/hardware/users/']
+    ${userLocation1}    Catenate    SEPARATOR=    xpath=//tr[@data-display="    ${userAccount}    "]/td[6]/div/a[2]
+    log    ${userLocation1}
+    Click Element    ${userLocation1}
+    ${userLocation2}    Catenate    SEPARATOR=    xpath=//tr[@data-display="    ${userAccount}    "]/td[6]/div/ul/li[1]
+    log    ${userLocation2}
+    Click Element    ${userLocation2}
+    Wait Until Page Contains Element    xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']
+
+more按钮enable操作
+    [Arguments]    ${userAccount}
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/users/']
+    Click Element    Xpath=//a[@href='/hardware/users/']
+    ${userLocation1}    Catenate    SEPARATOR=    xpath=//tr[@data-display="    ${userAccount}    "]/td[6]/div/a[2]
+    log    ${userLocation1}
+    Click Element    ${userLocation1}
+    ${userLocation2}    Catenate    SEPARATOR=    xpath=//tr[@data-display="    ${userAccount}    "]/td[6]/div/ul/li[1]
+    log    ${userLocation2}
+    Click Element    ${userLocation2}
+    Wait Until Page Contains Element    xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']
+
+创建admin权限用户
+    [Arguments]    ${username}    ${email}    ${password}    ${confirmPassword}
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/users/']    5
+    Click Element    Xpath=//a[@href='/hardware/users/']
+    Click Element    id=users__action_create
+    Wait Until Page Contains Element    id=id_name    5
+    Input Text    id=id_name    ${username}
+    Input Text    id=id_email    ${email}
+    Input Text    id=id_password    ${password}
+    Input Text    id=id_confirm_password    ${confirmPassword}
+    Select From List By Index    id=id_role_id    0
+    Click Button    css=input[type=submit]
+    Wait Until Page Contains Element    xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']    15
+    ${userAmount}=    Get Matching Xpath Count    //tbody/tr
+    log    ${userAmount}
+    ${userAmount}=    Evaluate    ${userAmount}+1
+    log    ${userAmount}
+    ${result}    Set variable    1
+    : FOR    ${i}    IN RANGE    1    ${userAmount}
+    \    ${userAccount}    Catenate    SEPARATOR=    //tbody/tr[    ${i}    ]/td[2]
+    \    log    ${userAccount}
+    \    Wait Until Page Contains Element    ${userAccount}
+    \    ${name}    Get Text    ${userAccount}
+    \    ${result}    Run Keyword if    '${name}'=='${username}'    Set variable    2
+    log    ${result}
+    should not be equal    ${result}    ${1}
+
+创建monitor权限用户
+    [Arguments]    ${username}    ${email}    ${password}    ${confirmPassword}
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/users/']    5
+    Click Element    Xpath=//a[@href='/hardware/users/']
+    Click Element    id=users__action_create
+    Wait Until Page Contains Element    id=id_name    5
+    Input Text    id=id_name    ${username}
+    Input Text    id=id_email    ${email}
+    Input Text    id=id_password    ${password}
+    Input Text    id=id_confirm_password    ${confirmPassword}
+    Select From List By Index    id=id_role_id    1
+    Click Button    css=input[type=submit]
+    Wait Until Page Contains Element    xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']    15
+    ${userAmount}=    Get Matching Xpath Count    //tbody/tr
+    log    ${userAmount}
+    ${userAmount}=    Evaluate    ${userAmount}+1
+    log    ${userAmount}
+    ${result}    Set variable    1
+    : FOR    ${i}    IN RANGE    1    ${userAmount}
+    \    ${userAccount}    Catenate    SEPARATOR=    //tbody/tr[    ${i}    ]/td[2]
+    \    log    ${userAccount}
+    \    Wait Until Page Contains Element    ${userAccount}
+    \    ${name}    Get Text    ${userAccount}
+    \    ${result}    Run Keyword if    '${name}'=='${username}'    Set variable    2
+    log    ${result}
+    should not be equal    ${result}    ${1}
+
+删除用户
+    [Arguments]    ${userAccount}
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/users/']
+    Click Element    Xpath=//a[@href='/hardware/users/']
+    ${userLocation}    Catenate    SEPARATOR=    xpath=//tr[@data-display="    ${userAccount}    "]/td[1]
+    log    ${userLocation}
+    Click Element    ${userLocation}
+    Click Element    id=users__action_delete
+    Click Element    xpath=/html/body/div[3]/div/div[3]/a[1]
+    Wait Until Page Contains Element    xpath=//div[@class='alert alert-block alert-success fade in']
+
+编辑用户
+    [Arguments]    ${userAccount}    ${username}    ${email}    ${password}    ${confirmPassword}
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/users/']
+    Click Element    Xpath=//a[@href='/hardware/users/']
+    ${userLocation}    Catenate    SEPARATOR=    xpath=//tr[@data-display="    ${userAccount}    "]/td[6]/div/a
+    log    ${userLocation}
+    Click Element    ${userLocation}
+    Wait Until Page Contains Element    id=id_name
+    Clear Element Text    id=id_name
+    Input Text    id=id_name    ${username}
+    Input Text    id=id_email    ${email}
+    Input Text    id=id_password    ${password}
+    Input Text    id=id_confirm_password    ${confirmPassword}
+    Click Button    css=input[type=submit]
+
+验证登录失败
+    [Arguments]    ${url}    ${browser}    ${username}    ${password}
+    Open Browser    ${url}    ${browser}
+    Maximize Browser Window
+    Input Text    id=id_username    ${username}
+    Input password    id=id_password    ${password}
+    Click Button    css=[type=submit]
+    Wait Until Page Contains Element    xpath=/html/body/div[2]/div[1]/form/div[1]/fieldset/div[1]/ul/li
+    ${message}    Get Text    xpath=/html/body/div[2]/div[1]/form/div[1]/fieldset/div[1]/ul/li
+    should be equal    ${message}    Invalid user name or password.
+
+more按钮delete操作
+    [Arguments]    ${userAccount}
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/users/']
+    Click Element    Xpath=//a[@href='/hardware/users/']
+    ${userLocation1}    Catenate    SEPARATOR=    xpath=//tr[@data-display="    ${userAccount}    "]/td[6]/div/a[2]
+    log    ${userLocation1}
+    Click Element    ${userLocation1}
+    ${userLocation2}    Catenate    SEPARATOR=    xpath=//tr[@data-display="    ${userAccount}    "]/td[6]/div/ul/li[2]
+    log    ${userLocation2}
+    Click Element    ${userLocation2}
+    Click Element    xpath=/html/body/div[3]/div/div[3]/a[1]
+    Wait Until Page Contains Element    xPath=/html/body/div[1]/div[2]/div[1]/div[@class='alert alert-block alert-success fade in']
+
+筛选用户可见
+    [Arguments]    ${userAccount}
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/users/']
+    Click Element    Xpath=//a[@href='/hardware/users/']
+    Input Text    Xpath=//input[@type='text']    ${userAccount}
+    ${userLocation}    Catenate    SEPARATOR=    xpath=//tr[@data-display="    ${userAccount}    "]/td[1]
+    log    ${userLocation}
+    Wait Until Page Contains Element    ${userLocation}
+    Element Should Be Visible    ${userLocation}
+
+筛选用户不可见
+    [Arguments]    ${userAccount}    ${badString}
+    Wait Until Element Is Visible    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Click Element    Xpath=/html/body/div[1]/div[2]/div[2]/div/dl/dd/div[5]/h4/div
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/users/']
+    Click Element    Xpath=//a[@href='/hardware/users/']
+    ${badString}    Catenate    SEPARATOR=    ${userAccount}    ${badString}
+    Input Text    Xpath=//input[@type='text']    ${badString}
+    ${userLocation}    Catenate    SEPARATOR=    xpath=//tr[@data-display="    ${userAccount}    "]/td[1]
+    log    ${userLocation}
+    Wait Until Element Is Not Visible    ${userLocation}
+    Element Should Not Be Visible    ${userLocation}
+
+对于monitor用户，security不可见
+    Click Element    Xpath=//dl/dd/div[5]/h4/div
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/network/']
+    Element Should Be Visible    Xpath=//a[@href='/hardware/network/']
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/globalattributes/']
+    Element Should Be Visible    Xpath=//a[@href='/hardware/globalattributes/']
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/backup/']
+    Element Should Be Visible    Xpath=//a[@href='/hardware/backup/']
+    Element Should Not Be Visible    Xpath=//a[@href='/hardware/users/']
+
+对于monitor用户，配置Network不成功
+    Click Element    Xpath=//dl/dd/div[5]/h4/div
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/network/']
+    Click Element    Xpath=//a[@href='/hardware/network/']
+    Wait Until Page Contains Element    Xpath=//a[@id='detail_link']
+    Click Element    Xpath=//a[@id='detail_link']
+    Wait Until Page Contains Element    Xpath=//input[@type='submit']
+    Click Element    Xpath=//input[@type='submit']
+    Comment    Mouse Over    Xpath=//input[@type='submit']
+    Comment    Mouse Down    Xpath=//input[@type='submit']
+    Comment    Mouse Up    Xpath=//input[@type='submit']
+    Wait Until Page Contains Element    Xpath=//div[@class="alert alert-block alert-warning fade in"]
+
+对于monitor用户，ISO页面没有删除按钮
+    Click Element    Xpath=//i[@class="icon-install"]
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/install_os/']
+    Click Element    Xpath=//a[@href='/hardware/install_os/']
+    Wait Until Element Is Visible    Xpath=//table[@id='OS Image']
+    Page Should Not Contain Element    Xpath=//button[@id='OS Image__action_delete']
+
+对于monitor用户，Application页面没有删除按钮
+    Click Element    Xpath=//i[@class="icon-install"]
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/install_app/']
+    Click Element    Xpath=//a[@href='/hardware/install_app/']
+    Wait Until Element Is Visible    Xpath=//table[@id='Application']
+    Page Should Not Contain Element    Xpath=//button[@id='Application__action_delete']
+
+对于monitor用户，All System页面没有删除按钮
+    Click Element    Xpath=//i[@class="icon-resource"]
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/servers/']
+    Click Element    Xpath=//a[@href='/hardware/servers/']
+    Wait Until Element Is Visible    Xpath=//table[@id='servers']
+    Page Should Not Contain Element    Xpath=//button[@id='servers__action_delete']
+
+对于monitor用户，可以查看log
+    Click Element    Xpath=//i[@class="icon-log"]
+    Wait Until Element Is Visible    Xpath=//a[@href='/hardware/logs/']
+    Click Element    Xpath=//a[@href='/hardware/logs/']
+    Wait Until Element Is Visible    Xpath=//table[@id='logs']
+    Page Should Contain Element    Xpath=//table/tbody/tr[1]

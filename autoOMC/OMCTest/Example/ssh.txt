@@ -1,0 +1,12 @@
+*** Settings ***
+Library           SSHLibrary
+
+*** Test Cases ***
+read
+    Open Connection    172.30.10.124
+    Login    root    teamsun
+    Write    ls
+    ${output2}    Read
+    Write    pwd
+    ${output}    Read
+    Should Contain    ${output}    /root

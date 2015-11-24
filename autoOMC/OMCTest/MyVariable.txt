@@ -1,0 +1,12 @@
+*** Variables ***
+${url}            http://172.30.10.130    # omc管理节点地址
+${browser}        chrome    # 浏览器类型
+${username-admin}    omcadmin    # OMC系统的默认管理权限用户名为omcadmin
+${password-admin}    123456    # OMC系统的默认管理权限用户名omcadmin对应的密码
+${username-monitor}    omcmonitor    # OMC系统的默认只读权限用户名为omcmonitor
+${password-monitor}    123456    # OMC系统的默认只读权限用户名omcmonitor对应的密码
+${ip-mn}          172.30.10.130    # 部署了OMC的管理节点的IP地址
+${username-mn}    root    # 部署了OMC的管理节点的用户名
+${password-mn}    teamsun    # 部署了OMC的管理节点的用户名的密码
+${username-BMC}    admin    # 访问受管节点的BMC时，使用的用户名
+${password-BMC}    admin    # 访问受管节点的BMC时，使用的密码
