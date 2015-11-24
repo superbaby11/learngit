@@ -1,6 +1,6 @@
 *** Variables ***
 ${url}            http://172.30.10.130    # omc管理节点地址
-${browser}        chrome    # 浏览器类型
+${browser}        firefox    # 浏览器类型
 ${username-admin}    omcadmin    # OMC系统的默认管理权限用户名为omcadmin
 ${password-admin}    123456    # OMC系统的默认管理权限用户名omcadmin对应的密码
 ${username-monitor}    omcmonitor    # OMC系统的默认只读权限用户名为omcmonitor
