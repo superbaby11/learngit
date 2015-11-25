@@ -45,3 +45,10 @@
     master分支应该是非常稳定的，仅用来发布新版本。
     dev分支是不稳定的，干活都在dev分支上，到某个时候，比如1.0版本发布时，再把分支合并到master上。
     你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
+bug分支
+    合并只关心分支点之后所做的修改
+    git stash                  临时把工作区和暂存区备份一下
+    git stash pop              恢复备份前的工作区和暂存区,并删除stash
+    git stash list             查看全部的stash
+    git stash apply            只恢复工作区和暂存区，不删除stash
+    git stash drop             删除stash
