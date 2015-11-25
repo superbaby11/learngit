@@ -52,3 +52,13 @@ bug分支
     git stash list             查看全部的stash
     git stash apply            只恢复工作区和暂存区，不删除stash
     git stash drop             删除stash
+feature分支
+    git branch -D <name>       强行删除没有合并的分支
+多人协作
+    git remote -v              查看远程库信息
+    git push origin branch-name从本地推送分支
+    git checkout -b branch-name origin/branch-name
+                               在本地创建和远程分支对应的分支
+    git branch --set-upstream branch-name  origin/branch-name
+                               建立本地分支和远程分支的关联
+    git pull origin branch-name从远程抓取分支
