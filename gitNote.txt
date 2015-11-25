@@ -9,7 +9,9 @@
     git diff
 查看提交日志
     git log
-    git log --pretty=oneline
+    git log --pretty=oneline  只显示一行概要信息
+    git log --graph --pretty=oneline 可以看到分支合并图
+    git log --graph --pretty=oneline --abbrev-commit 缩短commit id
 查看命令日志
     git reflog
 回退版本
