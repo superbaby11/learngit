@@ -5,4 +5,3 @@ Git tracks changes of files.
 Creating a new branch is quick and simple.
 Finding a way tracing branch.
 Bug branch.
-learn branch
