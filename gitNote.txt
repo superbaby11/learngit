@@ -29,3 +29,10 @@
     git push origin master    以后推送最新修改
 从远程库克隆
     git clone git@github.com:superbaby11/gitskills.git
+分支使用
+    git branch                查看分支
+    git branch <name>         创建分支
+    git checkout <name>       切换分支
+    git checkout -b <name>    创建+切换分支
+    git merge <name>          合并某分支到当前分支
+    git branch -d <name>      删除分支
