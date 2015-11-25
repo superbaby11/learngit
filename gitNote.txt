@@ -52,3 +52,5 @@ bug分支
     git stash list             查看全部的stash
     git stash apply            只恢复工作区和暂存区，不删除stash
     git stash drop             删除stash
+feature分支
+    git branch -D <name>       强行删除没有合并的分支
